@@ -1,0 +1,42 @@
+{
+    "name": "userfrosting/userfrosting",
+    "description": "A secure, modern user management system for PHP.",
+    "type": "library",
+    "keywords": [
+        "php user management",
+        "usercake"
+    ],
+    "homepage": "https://github.com/userfrosting/UserFrosting",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Weissman",
+            "homepage": "https://alexanderweissman.com"
+        },
+        {
+            "name": "Louis Charette",
+            "homepage": "https://bbqsoftwares.com"
+        },
+        {
+            "name": "Jordan Mele",
+            "email": "SiliconSoldier@outlook.com.au",
+            "homepage": "https://blog.djmm.me"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "slim/slim": "^4.4",
+        "psr/http-message": "^1.0",
+        "slim/psr7": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "UserFrosting\\System\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "UserFrosting\\Tests\\": "tests"
+        }
+    }
+}

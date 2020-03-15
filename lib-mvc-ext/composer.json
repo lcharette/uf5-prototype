@@ -1,0 +1,45 @@
+{
+    "name": "userfrosting/userfrosting",
+    "description": "A sprinkle for the UserFrosting servier-side framework that adds inbox support for traditional MVC setups like this included in the core prior to v5.",
+    "type": "library",
+    "keywords": [
+        "sprinkle",
+        "mvc"
+    ],
+    "homepage": "https://github.com/userfrosting/UserFrosting",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Weissman",
+            "homepage": "https://alexanderweissman.com"
+        },
+        {
+            "name": "Louis Charette",
+            "homepage": "https://bbqsoftwares.com"
+        },
+        {
+            "name": "Jordan Mele",
+            "email": "SiliconSoldier@outlook.com.au",
+            "homepage": "https://blog.djmm.me"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../lib-api"
+        }
+    ],
+    "require": {
+        "userfrosting/userfrosting": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "UserFrosting\\Sprinkle\\Mvc\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "UserFrosting\\Tests\\": "tests"
+        }
+    }
+}
