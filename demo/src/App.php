@@ -9,5 +9,6 @@ class App
     public static function main(): void
     {
         $uf = new UserFrosting();
+        ///$uf->registerSprinkle(...);
     }
 }

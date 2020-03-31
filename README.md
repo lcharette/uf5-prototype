@@ -1,21 +1,25 @@
 # UserFrosting 5 Prototype
 
-This repo explores one possible incarnation of UserFrosting 5. The focus of this prototype is;
-* Performance
-* Maintainability
-* Flexibility, particularly around supporting independent client side applications
+This repo explores one possible incarnation of UserFrosting 5. The goal is to extract the UserFrosting framework entirely into a separate package such that indivudal projects have more flexibility around their preferred workflows, and to permit the creation of maintainable project skeletons.
+
+It is expected that the change explored here will present a major breaking change, but one that doesn't require a complete refactor of an existing project. To this end the prototype will try to maintain existing conventions and attempt to constrain the scope to limit the number of breaking changes.
 
 Notable differences to v4;
-* Sprinkles are standard composer dependencies with no special handling. `sprinkles.json` no longer exists. A single composer package could also delivery multiple sprinkles under this model, as they are not dynamically instantiated.
-* Support for rendering views requires a separate sprinkle, this is to keep the core lean.
-* Monolithic controllers have been superseeded by `Actions` modelled after the current Slim PHP boilerplate. This change should offer improved performance and extensibility.
+* Any vendor package with a type of `userfrosting-sprinkle` will be loaded, meaning sprinkles can specify compatibility contraints and dependencies.
+  * Load order is resolved from the dependency graph to ensure correct load order automatically. This may be overridden if required.
+  * Project code is always loaded last, such that it always overrides and can safely depend on resources from required sprinkles.
+* Your actual project source is a superset of a sprinkle.
 * UserFrosting is now fully delivered by composer.
+* Strict adherence to semantic versioning, such that upgrade guides should not be required for feature level releases. This will likely mean major version bumps occuring at an increased pace, however updates will also be delivered sooner.
+* Improved support for multi-node environments such as AWS Elastic Beanstalk, Azure Service Fabric, and Kubernetes.
 
-On the horizon;
-* Generalised client side API, built to simplify integration with various ecosystems (e.g. server side rendered pages enhanced with scripts like v4, (P)React, Vue, Angular, Svelte)
-* Support for themes. This will be a system that is deliberatly separate from sprinkles but operating in a similar fashion. The reasoning behind this is that dynamically loading a sprinkle may result in unexpected behaviours. The integration points available to themes will be limited with this in mind. Themes are expected to integrate in a fashion similar to Sprinkles, in that their instantiation is performed within the project itself (not auto-magically using reflection).
-* How i18n and i10n will work
-* The `bakery`
-* Improving support for multi-node environments (e.g. Service Fabric and Kubernetes).
-* The upgrade path for those on v4, more specifically how bundling and processing of assets will work (work in v4 at least means the required tools exist).
-* How services can be swapped out (e.g. different ways of handling emails).
+## Looking Forward
+
+Building on the changes that would be brought with the v5 prototype, the following will be investigated and (if appropriate) implemented.
+
+* Decoupling of view component to support client side application models including;
+  * A generalised client side API that can be easily used with (P)React, Vue, Angular, Svelte, and the existing server side setup.
+  * New project skeletons built.
+  * Revision of i18n and i10n support to permit a single source of truth across server and client apps.
+* Theme support. Conditional loading of sprinkles is easy to achieve, however themes need to go beyond this to ensure logic remains unchanged for security and system integrity.
+* Revision of services provider such that autocompletion is possible. If possible, this will almost definitely translate to a major revision of how Sprinkles are loaded.
