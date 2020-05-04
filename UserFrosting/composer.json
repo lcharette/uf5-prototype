@@ -1,5 +1,5 @@
 {
-    "name": "userfrosting/demo",
+    "name": "userfrosting/userfrosting",
     "description": "UserFrosting demo implementation.",
     "type": "project",
     "homepage": "https://github.com/userfrosting/UserFrosting",
@@ -22,20 +22,16 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../lib-api"
+            "url": "../Framework"
+        },
+        {
+            "type": "path",
+            "url": "../Core"
         }
     ],
     "require": {
-        "userfrosting/userfrosting": "@dev"
-    },
-    "autoload": {
-        "psr-4": {
-            "UserFrosting\\Demo\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "UserFrosting\\Tests\\": "tests"
-        }
+        "composer/installers": "^1.4.0",
+        "userfrosting/framework": "@dev",
+        "userfrosting/core": "@dev"
     }
 }
