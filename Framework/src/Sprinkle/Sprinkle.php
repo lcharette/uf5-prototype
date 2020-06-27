@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace UserFrosting\System;
+namespace UserFrosting\Sprinkle;
 
 use Psr\Container\ContainerInterface;
 // TODO: This is deprecated, we need to switch to PSR-14

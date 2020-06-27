@@ -7,6 +7,8 @@ use DI\Container;
 use DI\ContainerBuilder;
 use Slim\App;
 use Slim\Factory\AppFactory;
+use UserFrosting\Sprinkle\SprinkleManager;
+use UserFrosting\Sprinkle\SprinkleManagerComposer;
 
 class UserFrosting
 {
@@ -39,7 +41,8 @@ class UserFrosting
         $containerBuilder = new ContainerBuilder();
 
         $containerBuilder->addDefinitions([
-            'router' => \DI\create(Router::class),
+            'router'    => \DI\create(Router::class),
+            'sprinkles' => \DI\create(SprinkleManagerComposer::class),
         ]);
 
         $this->ci = $containerBuilder->build();
@@ -47,6 +50,9 @@ class UserFrosting
 
     protected function setupSprinkles(): void
     {
+        /** @var SprinkleManagerComposer */
+        $sprinkles = $this->ci->get('sprinkles');
+
 
     }
 
