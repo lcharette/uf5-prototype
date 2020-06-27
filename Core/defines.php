@@ -10,6 +10,8 @@
 
 namespace UserFrosting;
 
+/*
+
 // Names of root directories
 define('UserFrosting\BUILD_DIR_NAME', 'build');
 define('UserFrosting\PUBLIC_DIR_NAME', 'public');
@@ -50,3 +52,4 @@ define('UserFrosting\BOWER_ASSET_DIR', ASSET_DIR . DS . 'bower_components');
 // Relative path from within sprinkle directory
 define('UserFrosting\MIGRATIONS_DIR', SRC_DIR_NAME . DS . 'Database' . DS . 'Migrations');
 define('UserFrosting\SEEDS_DIR', SRC_DIR_NAME . DS . 'Database' . DS . 'Seeds');
+*/

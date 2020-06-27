@@ -1,0 +1,4 @@
+parameters:
+  autoload_files:
+    - UserFrosting/vendor/autoload.php
+  level: max

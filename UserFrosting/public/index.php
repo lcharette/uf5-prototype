@@ -1,4 +1,8 @@
 <?php declare(strict_types=1);
 
+use UserFrosting\UserFrosting;
+
 require __DIR__ . '/../vendor/autoload.php';
-UserFrosting\Demo\App::main();
+
+$uf = new UserFrosting;
+$uf->run();
