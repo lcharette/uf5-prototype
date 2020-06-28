@@ -1,20 +1,14 @@
 <?php
 
 /*
- * UserFrosting (http://www.userfrosting.com)
+ * UserFrosting Framework (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/UserFrosting
- * @copyright Copyright (c) 2019 Alexander Weissman
+ * @copyright Copyright (c) 2020 Alexander Weissman & Louis Charette
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting\Sprinkle;
-
-use Illuminate\Support\Str;
-use Psr\Container\ContainerInterface;
-use UserFrosting\Support\Exception\FileNotFoundException;
-use UserFrosting\Support\Exception\JsonException;
-use Composer\Composer;
+namespace UserFrosting\SprinkleManager;
 
 /**
  * Sprinkle manager class.
@@ -34,7 +28,8 @@ class SprinkleManager
     {
         $sprinkles = $this->getSprinkles();
 
-        print_r($sprinkles); exit;
+        print_r($sprinkles);
+        exit;
 
         foreach ($sprinkles as $sprinkle) {
 
@@ -47,14 +42,13 @@ class SprinkleManager
      */
     public function getSprinkles(): array
     {
-       return [
+        return [
             'userfrosting/core' => $this->getPath('userfrosting/core'),
         ];
     }
 
     public function getPath(string $sprinkleName): string
     {
-
         return \UserFrosting\ROOT_DIR . '/app/sprinkles/' . $sprinkleName . '/';
     }
 }

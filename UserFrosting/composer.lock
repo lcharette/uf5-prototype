@@ -1276,13 +1276,17 @@
             "dist": {
                 "type": "path",
                 "url": "../Framework",
-                "reference": "0da84bdaa98c1b9e1d2359476a7bc41725b70ee9"
+                "reference": "128a0b418f0c112031b10fd598e7c507c4bd8325"
             },
             "require": {
                 "php": ">=7.3",
                 "php-di/php-di": "^6.2",
                 "slim/psr7": "^1.1",
                 "slim/slim": "^4.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "phpunit/phpunit": "^9.2"
             },
             "type": "library",
             "autoload": {
