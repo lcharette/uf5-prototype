@@ -15,7 +15,7 @@ namespace UserFrosting\Sprinkle;
 use Psr\Container\ContainerInterface;
 // TODO: This is deprecated, we need to switch to PSR-14
 use RocketTheme\Toolbox\Event\EventSubscriberInterface;
-use UserFrosting\System\Router\RoutesInterface;
+use UserFrosting\Router\RoutesInterface;
 
 abstract class Sprinkle implements EventSubscriberInterface
 {

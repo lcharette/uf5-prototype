@@ -8,7 +8,7 @@
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting\System\Bakery;
+namespace UserFrosting\Bakery;
 
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Command\Command;

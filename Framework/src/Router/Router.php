@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting\System\Router;
+namespace UserFrosting\Router;
 
 use Illuminate\Filesystem\Filesystem;
 use InvalidArgumentException;
@@ -44,7 +44,7 @@ class Router extends RouteCollector implements RouteCollectorInterface
      *
      * @return RouteInterface
      */
-    public function map(array $methods, string $pattern, $handler)
+    /*public function map(array $methods, string $pattern, $handler)
     {
         if (!is_string($pattern)) {
             throw new InvalidArgumentException('Route pattern must be a string');
@@ -83,7 +83,7 @@ class Router extends RouteCollector implements RouteCollectorInterface
         $this->routeCounter++;
 
         return $route;
-    }
+    }*/
 
     /**
      * Delete the cache file.

@@ -1,4 +1,0 @@
-parameters:
-  bootstrapFiles:
-    - UserFrosting/vendor/autoload.php
-  level: max
