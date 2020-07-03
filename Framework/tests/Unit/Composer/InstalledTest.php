@@ -1,16 +1,15 @@
 <?php
 
 /*
- * UserFrosting (http://www.userfrosting.com)
+ * UserFrosting Framework (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/UserFrosting
- * @copyright Copyright (c) 2019 Alexander Weissman
+ * @copyright Copyright (c) 2020 Alexander Weissman & Louis Charette
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
 namespace UserFrosting\Tests\Unit\Composer;
 
-use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use UserFrosting\Composer\Installed;
 
@@ -38,7 +37,8 @@ class InstalledTest extends TestCase
      */
     public function testLoadFile(Installed $installed): Installed
     {
-        $installed->loadFile(__DIR__ . '/data/installed.json');
+        $result = $installed->loadFile(__DIR__ . '/data/installed.json');
+        $this->assertInstanceOf(Installed::class, $result);
 
         $content = $installed->getRawContent();
         $this->assertJson($content);
@@ -55,7 +55,7 @@ class InstalledTest extends TestCase
         $this->assertIsArray($array);
         $this->assertCount(7, $array);
 
-        //$this->assertIsArray($array[0]);
+        $this->assertIsObject($array[0]);
         $this->assertSame('php-di/php-di', $array[0]->name);
         $this->assertSame('library', $array[0]->type);
     }
@@ -68,9 +68,9 @@ class InstalledTest extends TestCase
         $array = $installed->getInstalledForType('userfrosting-sprinkle');
         $this->assertIsArray($array);
         $this->assertCount(3, $array);
+        $this->assertIsObject($array[0]);
 
-        $this->assertIsObject(array_values($array)[0]);
-        
+        // Get only the names.
         $names = array_map(function ($value) {
             return $value->name;
         }, $array);
