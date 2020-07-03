@@ -69,8 +69,16 @@ class InstalledTest extends TestCase
         $this->assertIsArray($array);
         $this->assertCount(3, $array);
 
-        $this->assertIsArray($array[3]);
-        // $this->assertSame('php-di/php-di', $array[0]->name);
-        // $this->assertSame('library', $array[0]->type);
+        $this->assertIsObject(array_values($array)[0]);
+        
+        $names = array_map(function ($value) {
+            return $value->name;
+        }, $array);
+
+        $this->assertSame([
+            'userfrosting/account',
+            'userfrosting/admin',
+            'userfrosting/core',
+        ], $names);
     }
 }

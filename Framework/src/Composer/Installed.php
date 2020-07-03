@@ -47,13 +47,13 @@ class Installed
      */
     public function getInstalledForType(string $type): array
     {
-        //$result =
-        // foreach ($this->getInstalled() as $package) {
-
-        // }
-
-        return array_filter($this->getInstalled(), function($package) use ($type) {
+        $installed = array_filter($this->getInstalled(), function($package) use ($type) {
             return $package->type == $type;
         });
+
+        // Rebase index
+        $installed = array_values($installed);
+
+        return $installed;
     }
 }
