@@ -81,4 +81,21 @@ class InstalledTest extends TestCase
             'userfrosting/core',
         ], $names);
     }
+
+    /**
+     * @depends testLoadFile
+     * @depends testgetInstalledForType
+     */
+    public function testgetSprinkles(Installed $installed): void
+    {
+        $sprinkles = $installed->getSprinkles();
+
+        $this->assertIsArray($sprinkles);
+        $this->assertCount(3, $sprinkles);
+        $this->assertSame([
+            'userfrosting/account' => '',
+            'userfrosting/admin'   => '',
+            'userfrosting/core'    => 'UserFrosting\\Sprinkle\\Core\\Core',
+        ], $sprinkles);
+    }
 }

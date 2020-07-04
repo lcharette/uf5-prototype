@@ -16,12 +16,22 @@ namespace UserFrosting\Composer;
 class Installed
 {
     /**
-     * @var string The file content.
+     * @var string The composer.json file content.
      */
-    protected $installed = '';
+    protected $content = '';
 
     /**
-     * Load the specified file.
+     * @var string The sprinkle composer pacakge type.
+     */
+    protected $sprinkleTypeKey = 'userfrosting-sprinkle';
+
+    /**
+     * @var string The key in `extra` portion of composer.json used to list sprinkle boot class.
+     */
+    protected $sprinkleBootKey = 'sprinkle-boot';
+
+    /**
+     * Load the specified json file.
      *
      * @param string $file
      *
@@ -33,7 +43,7 @@ class Installed
             throw new \Exception('');
         }
 
-        $this->installed = $content;
+        $this->content = $content;
 
         return $this;
     }
@@ -45,7 +55,7 @@ class Installed
      */
     public function getRawContent(): string
     {
-        return $this->installed;
+        return $this->content;
     }
 
     /**
@@ -55,7 +65,7 @@ class Installed
      */
     public function getInstalled(): array
     {
-        return json_decode($this->installed);
+        return json_decode($this->content);
     }
 
     /**
@@ -73,5 +83,30 @@ class Installed
         $installed = array_values($installed);
 
         return $installed;
+    }
+
+    /**
+     * Return the list of sprinkles installed by composer.
+     *
+     * @return array<string,string> Presented as array<fullname,bootclass>
+     */
+    public function getSprinkles(): array
+    {
+        $packages = $this->getInstalledForType($this->sprinkleTypeKey);
+
+        // Create the return array to be consumed
+        $result = [];
+
+        foreach ($packages as $package) {
+            if (isset($package->extra) && isset($package->extra->{$this->sprinkleBootKey})) {
+                $bootClass = (string) $package->extra->{$this->sprinkleBootKey};
+            } else {
+                $bootClass = '';
+            }
+
+            $result[(string) $package->name] = $bootClass;
+        }
+
+        return $result;
     }
 }

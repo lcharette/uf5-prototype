@@ -285,16 +285,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.5.0",
+            "version": "v4.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "53c2753d756f5adb586dca79c2ec0e2654dd9463"
+                "reference": "c346bbfafe2ff60680258b631afb730d186ed864"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/53c2753d756f5adb586dca79c2ec0e2654dd9463",
-                "reference": "53c2753d756f5adb586dca79c2ec0e2654dd9463",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/c346bbfafe2ff60680258b631afb730d186ed864",
+                "reference": "c346bbfafe2ff60680258b631afb730d186ed864",
                 "shasum": ""
             },
             "require": {
@@ -333,7 +333,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-06-03T07:24:19+00:00"
+            "time": "2020-07-02T17:12:47+00:00"
         },
         {
             "name": "opis/closure",
@@ -1104,7 +1104,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Account",
-                "reference": "3824072ed4913769ce36740be9ac756aab3c09ae"
+                "reference": "a0227d55254e216914380e25e415426c78a70dbc"
             },
             "require": {
                 "birke/rememberme": "^2.0",
@@ -1154,7 +1154,10 @@
                 "bootstrap",
                 "php user management",
                 "usercake"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "userfrosting/admin",
@@ -1162,7 +1165,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Admin",
-                "reference": "bae544e1ee15a979b6b368bdc3b5ab9caaa9f0a2"
+                "reference": "d0cb1ba8125b5f19477cf8e1b3fa3c0edd6a2938"
             },
             "require": {
                 "userfrosting/account": "@dev"
@@ -1211,7 +1214,10 @@
                 "bootstrap",
                 "php user management",
                 "usercake"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "userfrosting/core",
@@ -1219,11 +1225,12 @@
             "dist": {
                 "type": "path",
                 "url": "../Core",
-                "reference": "850ffa65e04682e9c7bf6b11021a11385787f8f6"
+                "reference": "a9515037c2fc923b08970ede43ba155214184488"
             },
             "type": "userfrosting-sprinkle",
             "extra": {
-                "installer-name": "userfrosting/core"
+                "installer-name": "userfrosting/core",
+                "sprinkle-boot": "UserFrosting\\Sprinkle\\Core\\Core"
             },
             "autoload": {
                 "files": [
@@ -1268,7 +1275,10 @@
                 "bootstrap",
                 "php user management",
                 "usercake"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "userfrosting/framework",
@@ -1276,7 +1286,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Framework",
-                "reference": "128a0b418f0c112031b10fd598e7c507c4bd8325"
+                "reference": "d046efbb348841f1be700ed9575b131f05bccf09"
             },
             "require": {
                 "php": ">=7.3",
@@ -1321,7 +1331,10 @@
             "homepage": "https://github.com/userfrosting/UserFrosting",
             "keywords": [
                 "php user management"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         }
     ],
     "packages-dev": [],
@@ -1336,5 +1349,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

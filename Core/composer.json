@@ -43,6 +43,7 @@
         }
     },
     "extra": {
-        "installer-name": "userfrosting/core"
+        "installer-name": "userfrosting/core",
+        "sprinkle-boot": "UserFrosting\\Sprinkle\\Core\\Core"
     }
 }
