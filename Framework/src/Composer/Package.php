@@ -26,6 +26,18 @@ class Package
     protected $sprinkleKey = 'sprinkles';
 
     /**
+     * Load `composer.json` from the specified location.
+     *
+     * @param string $path The path where composer.json can be found.
+     *
+     * @return self
+     */
+    public function load(string $path)
+    {
+        return $this->loadFile($path . '/composer.json');
+    }
+
+    /**
      * Load the specified json file.
      *
      * @param string $file

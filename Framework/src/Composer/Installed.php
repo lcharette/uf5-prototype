@@ -31,6 +31,18 @@ class Installed
     protected $sprinkleBootKey = 'sprinkle-boot';
 
     /**
+     * Load `installed.json` from the specified location.
+     *
+     * @param string $path The path where installed.json can be found.
+     *
+     * @return self
+     */
+    public function load(string $path)
+    {
+        return $this->loadFile($path . '/installed.json');
+    }
+
+    /**
      * Load the specified json file.
      *
      * @param string $file

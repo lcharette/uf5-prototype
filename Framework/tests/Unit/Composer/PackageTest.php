@@ -35,9 +35,9 @@ class PackageTest extends TestCase
     /**
      * @depends testConstructor
      */
-    public function testLoadFile(Package $package): Package
+    public function testLoad(Package $package): Package
     {
-        $result = $package->loadFile(__DIR__ . '/data/composer.json');
+        $result = $package->load(__DIR__ . '/data/');
         $this->assertInstanceOf(Package::class, $result);
 
         $content = $package->getRawContent();
@@ -47,7 +47,7 @@ class PackageTest extends TestCase
     }
 
     /**
-     * @depends testLoadFile
+     * @depends testLoad
      */
     public function testgetContent(Package $package): void
     {
@@ -59,7 +59,7 @@ class PackageTest extends TestCase
     }
 
     /**
-     * @depends testLoadFile
+     * @depends testLoad
      */
     public function testgetSprinkles(Package $package): void
     {

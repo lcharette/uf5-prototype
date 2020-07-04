@@ -35,9 +35,9 @@ class InstalledTest extends TestCase
     /**
      * @depends testConstructor
      */
-    public function testLoadFile(Installed $installed): Installed
+    public function testLoad(Installed $installed): Installed
     {
-        $result = $installed->loadFile(__DIR__ . '/data/installed.json');
+        $result = $installed->load(__DIR__ . '/data');
         $this->assertInstanceOf(Installed::class, $result);
 
         $content = $installed->getRawContent();
@@ -47,7 +47,7 @@ class InstalledTest extends TestCase
     }
 
     /**
-     * @depends testLoadFile
+     * @depends testLoad
      */
     public function testgetInstalled(Installed $installed): void
     {
@@ -61,7 +61,7 @@ class InstalledTest extends TestCase
     }
 
     /**
-     * @depends testLoadFile
+     * @depends testLoad
      */
     public function testgetInstalledForType(Installed $installed): void
     {
@@ -83,7 +83,7 @@ class InstalledTest extends TestCase
     }
 
     /**
-     * @depends testLoadFile
+     * @depends testLoad
      * @depends testgetInstalledForType
      */
     public function testgetSprinkles(Installed $installed): void
