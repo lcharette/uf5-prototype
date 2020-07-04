@@ -1,0 +1,29 @@
+{
+    "name": "userfrosting/foobar",
+    "description": "UserFrosting Foo Bar.",
+    "type": "project",
+    "homepage": "https://github.com/userfrosting/UserFrosting",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Weissman",
+            "homepage": "https://alexanderweissman.com"
+        },
+        {
+            "name": "Louis Charette",
+            "homepage": "https://bbqsoftwares.com"
+        },
+        {
+            "name": "Jordan Mele",
+            "email": "SiliconSoldier@outlook.com.au",
+            "homepage": "https://blog.djmm.me"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.4.0",
+        "userfrosting/framework": "@dev",
+        "userfrosting/core": "@dev",
+        "userfrosting/account": "@dev",
+        "userfrosting/admin": "@dev"
+    }
+}

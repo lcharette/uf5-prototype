@@ -72,4 +72,43 @@ class PackageTest extends TestCase
             'foo/site' => 'Foo\\Sprinkle\\Site\\Site',
         ], $sprinkles);
     }
+
+    /**
+     * @depends testgetSprinkles
+     */
+    public function testgetSprinklesWithNoExtra(): void
+    {
+        $package = new Package();
+        $sprinkles = $package->loadFile(__DIR__ . '/data/composer_noextra.json')->getSprinkles();
+
+        $this->assertIsArray($sprinkles);
+        $this->assertCount(0, $sprinkles);
+        $this->assertSame([], $sprinkles);
+    }
+
+    /**
+     * @depends testgetSprinkles
+     */
+    public function testgetSprinklesWithNoSprinkleDefinition(): void
+    {
+        $package = new Package();
+        $sprinkles = $package->loadFile(__DIR__ . '/data/composer_nosprinkles.json')->getSprinkles();
+
+        $this->assertIsArray($sprinkles);
+        $this->assertCount(0, $sprinkles);
+        $this->assertSame([], $sprinkles);
+    }
+
+    /**
+     * @depends testgetSprinkles
+     */
+    public function testgetSprinklesWithEmptySprinkleDefinition(): void
+    {
+        $package = new Package();
+        $sprinkles = $package->loadFile(__DIR__ . '/data/composer_emptySprinkles.json')->getSprinkles();
+
+        $this->assertIsArray($sprinkles);
+        $this->assertCount(0, $sprinkles);
+        $this->assertSame([], $sprinkles);
+    }
 }
