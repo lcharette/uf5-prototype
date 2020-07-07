@@ -16,6 +16,8 @@ use DI\Container;
 use DI\ContainerBuilder;
 use Slim\App;
 use Slim\Factory\AppFactory;
+use UserFrosting\Composer\Installed;
+use UserFrosting\Composer\Package;
 use UserFrosting\SprinkleManager\SprinkleManager;
 
 class UserFrosting
@@ -26,9 +28,19 @@ class UserFrosting
     protected $ci;
 
     /**
+     * @var string Root directory of the UserFrosting install.
+     */
+    protected $rootDir;
+
+    /**
      * @var App
      */
     protected $app;
+
+    public function __construct(string $rootDir)
+    {
+        $this->rootDir = $rootDir;
+    }
 
     public function run(): void
     {
@@ -46,8 +58,11 @@ class UserFrosting
         $containerBuilder = new ContainerBuilder();
 
         $containerBuilder->addDefinitions([
-            'router'    => \DI\create(Router::class),
-            'sprinkles' => \DI\create(SprinkleManager::class),
+            'router'          => \DI\create(Router::class),
+            'sprinkleManager' => \DI\autowire(SprinkleManager::class),
+            Installed::class  => \DI\autowire(Installed::class)->method('load', $this->rootDir . '/vendor/composer'),
+            Package::class    => \DI\autowire(Package::class)->method('load', $this->rootDir),
+            'rootDir'         => $this->rootDir,
         ]);
 
         $this->ci = $containerBuilder->build();
@@ -56,7 +71,7 @@ class UserFrosting
     protected function setupSprinkles(): void
     {
         /** @var SprinkleManager */
-        $manager = $this->ci->get('sprinkles');
+        $manager = $this->ci->get('sprinkleManager');
 
         $manager->loadSprinkles();
     }

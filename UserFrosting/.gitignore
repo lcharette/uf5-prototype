@@ -1,3 +1,6 @@
-vendor
 .DS_Store
-app/sprinkles/*/
+vendor
+.vscode
+*.cache
+_meta
+app/sprinkles/userfrosting/

@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 /**
  *  _   _              ______             _   _
@@ -25,9 +25,6 @@ if (!file_exists(__DIR__ . '/../vendor/autoload.php')) {
     require_once __DIR__ . '/../vendor/autoload.php';
 }
 
-// Next, we set the app root directory.
-define('UserFrosting\ROOT_DIR', realpath(__DIR__ . '/..'));
-
 // We can finally create and run the app
-$uf = new \UserFrosting\UserFrosting;
+$uf = new \UserFrosting\UserFrosting(realpath(__DIR__ . '/..'));
 $uf->run();

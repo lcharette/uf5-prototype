@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * UserFrosting Framework (http://www.userfrosting.com)
  *
@@ -10,45 +12,60 @@
 
 namespace UserFrosting\SprinkleManager;
 
+use UserFrosting\Composer\Installed;
+use UserFrosting\Composer\Package;
+
 /**
  * Sprinkle manager class.
  *
  * Manages a collection of loaded Sprinkles for the application.
  * Handles Sprinkle class creation, event subscription, services registration, and resource stream registration.
- *
- * @author Alex Weissman (https://alexanderweissman.com)
  */
 class SprinkleManager
 {
-    public function __construct()
+    /**
+     * @var Installed
+     */
+    protected $composerInstalled;
+
+    /**
+     * @var Package
+     */
+    protected $composerPackage;
+
+    /**
+     * @var array<string,string> List of loaded sprinkles, presented as array<fullname,bootclass>.
+     */
+    protected $sprinkles;
+    
+    public function __construct(Package $composerPackage, Installed $composerInstalled)
     {
+        $this->composerPackage = $composerPackage;
+        $this->composerInstalled = $composerInstalled;
     }
 
     public function loadSprinkles(): void
     {
-        $sprinkles = $this->getSprinkles();
-
-        print_r($sprinkles);
-        exit;
-
-        foreach ($sprinkles as $sprinkle) {
-
-            //$class = ...;
-        }
+        $this->sprinkles = $this->getSprinkles();
     }
 
     /**
-     * @return array<string,string> as SprinkleName => SprinklePath
+     * @return array<string,string> as SprinkleName => SprikleBootClass
      */
-    public function getSprinkles(): array
+    protected function getSprinkles(): array
     {
-        return [
-            'userfrosting/core' => $this->getPath('userfrosting/core'),
-        ];
+        // Get composer installed sprinkles
+        $installed = $this->composerInstalled->getSprinkles();
+        
+        // Get root defined sprinkles
+        $root = $this->composerPackage->getSprinkles();
+
+        // Return a merged list
+        return array_merge($installed, $root);
     }
 
-    public function getPath(string $sprinkleName): string
+    protected function bootSprinkle(): bool 
     {
-        return \UserFrosting\ROOT_DIR . '/app/sprinkles/' . $sprinkleName . '/';
+        return true;
     }
 }
