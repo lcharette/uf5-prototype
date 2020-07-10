@@ -1,14 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace UserFrosting\Demo;
+namespace UserFrosting\Sprinkle\Core;
 
-use UserFrosting\System\UserFrosting;
+use UserFrosting\Sprinkle\BootDefinition;
 
-class App
+class Core extends BootDefinition
 {
-    public static function main(): void
+    public function getPath(): string
     {
-        $uf = new UserFrosting();
-        ///$uf->registerSprinkle(...);
+        return realpath(__DIR__ . '/..');
     }
 }

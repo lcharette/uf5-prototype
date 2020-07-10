@@ -40,13 +40,6 @@
     "require": {
         "composer/installers": "^1.4.0",
         "userfrosting/framework": "@dev",
-        "userfrosting/core": "@dev",
-        "userfrosting/account": "@dev",
-        "userfrosting/admin": "@dev"
-    },
-    "extra": {
-        "sprinkles": {
-            "Core" : "UserFrosting\\Sprinkle\\Core\\Core"
-        }
+        "userfrosting/core": "@dev"
     }
 }

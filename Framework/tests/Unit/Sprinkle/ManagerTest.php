@@ -8,15 +8,15 @@
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting\Tests\Unit\SprinkleManager;
+namespace UserFrosting\Tests\Unit\Sprinkle;
 
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use UserFrosting\Composer\Installed;
 use UserFrosting\Composer\Package;
-use UserFrosting\SprinkleManager\SprinkleManager;
+use UserFrosting\Sprinkle\Manager;
 
-class SprinkleManagerTest extends TestCase
+class ManagerTest extends TestCase
 {
     public function testConstructor(): void 
     {
@@ -26,7 +26,7 @@ class SprinkleManagerTest extends TestCase
         /** @var Installed */
         $installed = m::mock(Installed::class);
         
-        $manager = new SprinkleManager($package, $installed);
-        $this->assertInstanceOf(SprinkleManager::class, $manager);
+        $manager = new Manager($package, $installed);
+        $this->assertInstanceOf(Manager::class, $manager);
     }
 }
