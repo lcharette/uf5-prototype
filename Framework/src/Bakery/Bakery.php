@@ -8,13 +8,13 @@
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting\Bakery;
+namespace UserFrosting\Framework\Bakery;
 
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use UserFrosting\UserFrosting;
+use UserFrosting\Framework\UserFrosting;
 use UserFrosting\UniformResourceLocator\Resource;
 use UserFrosting\UniformResourceLocator\ResourceLocator;
 

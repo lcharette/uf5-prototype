@@ -10,13 +10,13 @@ declare(strict_types=1);
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting\Sprinkle;
+namespace UserFrosting\Framework\Sprinkle;
 
-use UserFrosting\Composer\Installed;
-use UserFrosting\Composer\Package;
-use UserFrosting\Exception\ClassNotFoundException;
-use UserFrosting\Exception\ClassNotInstanceOfException;
-use UserFrosting\Sprinkle\BootInterface;
+use UserFrosting\Framework\Composer\Installed;
+use UserFrosting\Framework\Composer\Package;
+use UserFrosting\Framework\Exception\ClassNotFoundException;
+use UserFrosting\Framework\Exception\ClassNotInstanceOfException;
+use UserFrosting\Framework\Sprinkle\BootInterface;
 
 /**
  * Sprinkle manager class.

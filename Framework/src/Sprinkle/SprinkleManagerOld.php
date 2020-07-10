@@ -8,7 +8,7 @@
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting\Sprinkle;
+namespace UserFrosting\Framework\Sprinkle;
 
 use Illuminate\Support\Str;
 use Psr\Container\ContainerInterface;

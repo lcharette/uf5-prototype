@@ -34,12 +34,12 @@
     },
     "autoload": {
         "psr-4": {
-            "UserFrosting\\": "src"
+            "UserFrosting\\Framework\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "UserFrosting\\Tests\\": "tests"
+            "UserFrosting\\Framework\\Tests\\": "tests"
         }
     }
 }

@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting\Composer;
+namespace UserFrosting\Framework\Composer;
 
 /**
  * Read a composer installed.json and returned the decoded information about installed packages.

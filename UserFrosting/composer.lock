@@ -1012,7 +1012,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Framework",
-                "reference": "d046efbb348841f1be700ed9575b131f05bccf09"
+                "reference": "61406aa7d9f17c9b9d60a7d6e5e9287712f31bbb"
             },
             "require": {
                 "php": ">=7.3",
@@ -1027,12 +1027,12 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "UserFrosting\\": "src"
+                    "UserFrosting\\Framework\\": "src"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "UserFrosting\\Tests\\": "tests"
+                    "UserFrosting\\Framework\\Tests\\": "tests"
                 }
             },
             "license": [

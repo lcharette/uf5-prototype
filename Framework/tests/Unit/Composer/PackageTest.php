@@ -8,10 +8,10 @@
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting\Tests\Unit\Composer;
+namespace UserFrosting\Framework\Tests\Unit\Composer;
 
 use PHPUnit\Framework\TestCase;
-use UserFrosting\Composer\Package;
+use UserFrosting\Framework\Composer\Package;
 
 class PackageTest extends TestCase
 {

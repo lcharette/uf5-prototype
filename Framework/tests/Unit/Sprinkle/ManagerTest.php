@@ -8,13 +8,13 @@
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting\Tests\Unit\Sprinkle;
+namespace UserFrosting\Framework\Tests\Unit\Sprinkle;
 
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
-use UserFrosting\Composer\Installed;
-use UserFrosting\Composer\Package;
-use UserFrosting\Sprinkle\Manager;
+use UserFrosting\Framework\Composer\Installed;
+use UserFrosting\Framework\Composer\Package;
+use UserFrosting\Framework\Sprinkle\Manager;
 
 class ManagerTest extends TestCase
 {

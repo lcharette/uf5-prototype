@@ -10,15 +10,15 @@ declare(strict_types=1);
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting;
+namespace UserFrosting\Framework;
 
 use DI\Container;
 use DI\ContainerBuilder;
 use Slim\App;
 use Slim\Factory\AppFactory;
-use UserFrosting\Composer\Installed;
-use UserFrosting\Composer\Package;
-use UserFrosting\Sprinkle\Manager;
+use UserFrosting\Framework\Composer\Installed;
+use UserFrosting\Framework\Composer\Package;
+use UserFrosting\Framework\Sprinkle\Manager;
 
 class UserFrosting
 {

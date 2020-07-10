@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 
-namespace UserFrosting\Sprinkle;
+namespace UserFrosting\Framework\Sprinkle;
 
 use Psr\Container\ContainerInterface;
 // TODO: This is deprecated, we need to switch to PSR-14

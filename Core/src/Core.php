@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace UserFrosting\Sprinkle\Core;
 
-use UserFrosting\Sprinkle\BootDefinition;
+use UserFrosting\Framework\Sprinkle\BootDefinition;
 
 class Core extends BootDefinition
 {
