@@ -14,8 +14,8 @@ namespace UserFrosting\Sprinkle;
 
 class BootDefinition implements BootInterface
 {
-    public function getPath(): string 
+    public function getPath(): string
     {
-        return dirname(__FILE__);
+        return realpath(__DIR__ . '/..');
     }
 }
